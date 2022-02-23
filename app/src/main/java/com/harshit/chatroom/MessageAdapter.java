@@ -181,8 +181,8 @@ public class MessageAdapter extends RecyclerView.Adapter {
         public ReceivedMessageHolder(@NonNull View itemView) {
             super(itemView);
 
-            nameTxt = itemView.findViewById(R.id.nameTxt);
-            messageTxt = itemView.findViewById(R.id.receivedTxt);
+            nameTxt = itemView.findViewById(R.id.txtSenderNameForMessage);
+            messageTxt = itemView.findViewById(R.id.txtReceived);
         }
     }
 
@@ -195,7 +195,7 @@ public class MessageAdapter extends RecyclerView.Adapter {
             super(itemView);
 
             imageView = itemView.findViewById(R.id.imageView);
-            nameTxt = itemView.findViewById(R.id.nameTxt);
+            nameTxt = itemView.findViewById(R.id.txtSenderNameForMessage);
 
         }
     }

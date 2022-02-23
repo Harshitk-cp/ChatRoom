@@ -29,7 +29,7 @@ public class ChatActivity extends AppCompatActivity implements TextWatcher {
 
     private String name;
     private WebSocket webSocket;
-    private final String SERVER_PATH = "ws://10.0.2.2:8080";
+    private final String SERVER_PATH = "ws://kage-chat-room.herokuapp.com";
     private EditText messageEdit;
     private View sendBtn, pickImgBtn;
     private RecyclerView recyclerView;
@@ -93,11 +93,11 @@ public class ChatActivity extends AppCompatActivity implements TextWatcher {
 
     private void initializeView() {
 
-        messageEdit = findViewById(R.id.messageEdit);
-        sendBtn = findViewById(R.id.sendBtn);
-        pickImgBtn = findViewById(R.id.pickImgBtn);
+        messageEdit = findViewById(R.id.etSendMessage);
+        sendBtn = findViewById(R.id.btnSendMsg);
+        pickImgBtn = findViewById(R.id.btnPickImg);
 
-        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView = findViewById(R.id.rvMessage);
 
         messageAdapter = new MessageAdapter(getLayoutInflater());
         recyclerView.setAdapter(messageAdapter);
