@@ -29,7 +29,7 @@ public class ChatActivity extends AppCompatActivity implements TextWatcher {
 
     private String name;
     private WebSocket webSocket;
-    private final String SERVER_PATH = "ws://kage-chat-room.herokuapp.com";
+    private final String SERVER_PATH = "ws://chat-room-old.herokuapp.com/";
     private EditText messageEdit;
     private View sendBtn, pickImgBtn;
     private RecyclerView recyclerView;
@@ -194,7 +194,7 @@ public class ChatActivity extends AppCompatActivity implements TextWatcher {
             super.onClosed(webSocket, code, reason);
             runOnUiThread(() -> {
                 Toast.makeText(ChatActivity.this,
-                        "Socket Connection Aborted!!",
+                        " Connection Lost!!",
                         Toast.LENGTH_SHORT).show();
             });
 
@@ -206,7 +206,7 @@ public class ChatActivity extends AppCompatActivity implements TextWatcher {
 
             runOnUiThread(() -> {
                 Toast.makeText(ChatActivity.this,
-                        "Socket Connection Successful!",
+                        " Connection Successful!",
                         Toast.LENGTH_SHORT).show();
 
                 initializeView();
