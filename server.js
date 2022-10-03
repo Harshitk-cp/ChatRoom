@@ -1,23 +1,24 @@
-const SocketServer = require('websocket').server
-const http = require('http')
+import SocketServer from "websocket/server"
+import http from "http"
 
+const port = 8080;
 const server = http.createServer((req, res) => {})
 
-server.listen(8080, ()=>{
-    console.log("Listening on port 8080...")
+server.listen(port, () => {
+    console.log(`Listening on port ${port}...`)
 })
 
-wsServer = new SocketServer({httpServer:server})
+wsServer = new SocketServer({ httpServer:server })
 
-const connections = []
+const allConnections = []
 
 wsServer.on('request', (req) => {
     const connection = req.accept()
     console.log('new connection')
-    connections.push(connection)
+    allConnections.push(connection)
 
     connection.on('message', (mes) => {
-        connections.forEach(element => {
+        allConnections.forEach(element => {
             if (element != connection)
                 element.sendUTF(mes.utf8Data)
         })
@@ -25,7 +26,7 @@ wsServer.on('request', (req) => {
 
     connection.on('close', (resCode, des) => {
         console.log('connection closed')
-        connections.splice(connections.indexOf(connection), 1)
+        allConnections.splice(allConnections.indexOf(connection), 1)
     })
 
 })
